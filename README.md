@@ -40,7 +40,22 @@ date: 2018-09-10
 ---
 ```
 
-**The `layout` property should _always_ be present.**
+### `layout`
+
+**The `layout` property should _always_ be present.**  Unless the `redirect`
+property is being defined.
+
+### `redirect`
+
+Allows you to redirect the current page to a different URL.
+
+Note it'll use HTTP status 301 Moved Permanently.
+
+```
+---
+redirect: /blog/2018/09/10/exiting-early-cognitive-load
+---
+```
 
 ## Layouts
 

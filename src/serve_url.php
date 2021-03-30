@@ -16,6 +16,12 @@ if ($extensions == ['md'] || $extensions == ['html', 'md']) {
 
 $metadata = $file->get_metadata();
 
+if (isset($metadata['redirect'])) {
+  http_response_code(301);
+  header('Location: ' . $metadata['redirect']);
+  die();
+}
+
 // This is expected to load a Layout class with a ->render() method which will
 // be passed ($metadata: Array, $contents: String, $parser: Parser).  It is
 // expected to output the whole page.
