@@ -3,7 +3,6 @@ title: Exiting early, cognitive load
 layout: blogpost
 date: 2018-09-10
 ---
-
 Continuing from our [last post about cognitive load][last-post], today we'll
 talk about another general practice that will do you good to simplify your
 code's logic and reduce its cognitive load.
