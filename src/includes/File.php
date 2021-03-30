@@ -1,12 +1,10 @@
 <?php
 class File {
   private $path;
-  private $parsed_path;
   private $raw_file;
 
   public function __construct($path) {
     $this->path = $path;
-    $this->parsed_path = pathinfo($path);
   }
 
   private function get_raw_file(): string {

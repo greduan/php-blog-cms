@@ -73,7 +73,7 @@ class Layout {
   <title><?php echo $metadata['title']; ?> -- My Blog</title>
 </head>
 <body>
-<?php echo '<h1>' . $metadata['title'] . '</h1>'; ?>
+<h1><?php echo $metadata['title']; ?></h1>
 <?php echo $parser->parse_contents($contents); ?>
 </body>
 </html>

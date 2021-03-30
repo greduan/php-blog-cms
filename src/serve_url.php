@@ -12,6 +12,8 @@ $extensions = $file->get_file_extensions();
 if ($extensions == ['md'] || $extensions == ['html', 'md']) {
   require_once dirname(__FILE__) . '/includes/parsers/Markdown_To_Html_Parser.php';
   $parser = new Markdown_To_Html_Parser();
+} else {
+  $parser = null;
 }
 
 $metadata = $file->get_metadata();
