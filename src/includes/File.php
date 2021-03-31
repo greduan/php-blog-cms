@@ -29,7 +29,7 @@ class File {
 
   public function get_contents(): string {
     $raw_file = $this->get_raw_file();
-    preg_match('/---[\S\s]*---([\S\s]*)/', $raw_file, $raw_contents);
+    preg_match('/---[\S\s]*?---([\S\s]*)/', $raw_file, $raw_contents);
     $raw_contents = $raw_contents[1];
     return trim($raw_contents);
   }

@@ -19,26 +19,21 @@ class Url {
     $uri = $this->parsed_url['path'];
 
     if (is_dir($GLOBALS['content_dir'] . $uri)) {
-      $index_file = (substr($uri, -1) === '/' ? '/' : '') . 'index.php';
-      if (file_exists($GLOBALS['content_dir'] . $uri . $index_file)) {
-        $file_path = $uri . $index_file;
+      $uri = $uri . (substr($uri, -1) === '/' ? '' : '/') . 'index';
+    }
+
+    $uri = pathinfo($uri);
+    $uri = $uri['dirname'] . (substr($uri['dirname'], -1) === '/' ? '' : '/') . $uri['filename'];
+    $file_extensions = ['', '.php', '.html', '.md'];
+
+    foreach ($file_extensions as $extension) {
+      if (
+        file_exists($GLOBALS['content_dir'] . $uri . $extension) &&
+        !is_dir($GLOBALS['content_dir'] . $uri . $extension)
+      ) {
+        $file_path = $uri . $extension;
         $this->file_path = $file_path;
         return $file_path;
-      }
-    } else {
-      $uri = pathinfo($this->parsed_url['path']);
-      $uri = $uri['dirname'] . '/' . $uri['filename'];
-      $file_extensions = ['', '.php', '.html', '.md'];
-
-      foreach ($file_extensions as $extension) {
-        if (
-          file_exists($GLOBALS['content_dir'] . $uri . $extension) &&
-          !is_dir($GLOBALS['content_dir'] . $uri . $extension)
-        ) {
-          $file_path = $uri . $extension;
-          $this->file_path = $file_path;
-          return $file_path;
-        }
       }
     }
 
