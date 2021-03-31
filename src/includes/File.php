@@ -1,4 +1,6 @@
 <?php
+use Symfony\Component\Yaml\Yaml;
+
 class File {
   private $path;
   private $raw_file;
@@ -20,9 +22,9 @@ class File {
 
   public function get_metadata(): array {
     $raw_file = $this->get_raw_file();
-    preg_match('/---([\S\s]*)---/', $raw_file, $raw_metadata);
+    preg_match('/---([\S\s]*?)---/', $raw_file, $raw_metadata);
     $raw_metadata = $raw_metadata[1];
-    return yaml_parse($raw_metadata);
+    return Yaml::parse($raw_metadata);
   }
 
   public function get_contents(): string {

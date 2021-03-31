@@ -8,23 +8,12 @@ A straightforward, file-based CMS written in PHP.
 $ composer install
 ```
 
-If using with Devilbox, make this repo the folder under `data/www/` and then
-make a symlink:
-
-```shell
-$ ln -sv public htdocs
-```
-
-So it'd look something like:
-
-```
-data/www/my-blog
-data/www/my-blog/htdocs -> ./public
-```
+If using with Devilbox, make this repo the folder under
+`data/www/{yourprojectname}/htdocs`.
 
 ## Features
 
-- Basic metadata header parsing.
+- Basic metadata header parsing.  (AKA YAML Front Matter)
 - Straightforward templating via "layouts".
 
 ## Metadata
