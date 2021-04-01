@@ -1,5 +1,23 @@
-# Send all requests to index.php
 RewriteEngine on
+
+### Send asset files to the assets
+
+# File doesn't exist
 RewriteCond %{REQUEST_FILENAME} !-f
+# Folder doesn't exist
 RewriteCond %{REQUEST_FILENAME} !-d
+# It's an assets request
+RewriteCond %{REQUEST_URI} ^/assets
+# Redirect to the /content/assets folder
+RewriteRule ^(.*)$ /content/$1 [L,QSA]
+
+### Send all requests to index.php
+
+# File doesn't exist
+RewriteCond %{REQUEST_FILENAME} !-f
+# Folder doesn't exist
+RewriteCond %{REQUEST_FILENAME} !-d
+# It's not an assets request
+RewriteCond %{REQUEST_URI} !^/assets
+# Redirect to the index.php file
 RewriteRule ^.*$ /index.php [L,QSA]
