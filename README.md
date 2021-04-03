@@ -1,6 +1,9 @@
 # PHP Blog CMS
 
-A straightforward, file-based CMS written in PHP.
+PHP Blog CMS is simple, straightforward, file-based CMS written in PHP.
+
+The cool thing is, it's just plain PHP, so in your layouts/pages you can do
+whatever you deem fit in order to make your blog look/behave how you want it to.
 
 ## Install
 
@@ -11,12 +14,25 @@ $ composer install
 If using with Devilbox, make this repo the folder under
 `data/www/{yourprojectname}/htdocs`.
 
+### Requirements
+
+- PHP7.4+
+- Apache
+
+## Usage
+
+In short, you make it run locally and you make sure it works, you fill out the
+`content/` appropriately to have your website as you want it, and then via SFTP
+or SSH or what have you, transfer the files to your host, excluding dotfiles.
+
 ## Features
 
 - Basic metadata header parsing.  (AKA YAML Front Matter)
 - Straightforward templating via "layouts".
+- Basic support for an `assets/` folder, files in here won't have
+  pre-processing applied to them as they're served straight by the server.
 
-## Metadata
+## Metadata (Front-matter)
 
 The very common header format is used for the metadata.  Its contents are
 expected to be in the YAML format.  E.g.
