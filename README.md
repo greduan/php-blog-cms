@@ -5,6 +5,8 @@ PHP Blog CMS is simple, straightforward, file-based CMS written in PHP.
 The cool thing is, it's just plain PHP, so in your layouts/pages you can do
 whatever you deem fit in order to make your blog look/behave how you want it to.
 
+An real world example usage: https://github.com/greduan/blog-content
+
 ## Install
 
 ```shell
